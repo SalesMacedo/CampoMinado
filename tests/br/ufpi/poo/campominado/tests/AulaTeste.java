@@ -1,14 +1,18 @@
 package br.ufpi.poo.campominado.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import br.ufpi.poo.campominado.enums.Acao;
+import br.ufpi.poo.campominado.enums.EstadoZona;
 import br.ufpi.poo.campominado.exceptions.AcaoInvalidaException;
 import br.ufpi.poo.campominado.exceptions.BombaExplodiuException;
 import br.ufpi.poo.campominado.exceptions.PosicaoInvalidaException;
 import br.ufpi.poo.campominado.model.CampoMinado;
 import br.ufpi.poo.campominado.model.Coordenada;
 import br.ufpi.poo.campominado.model.Jogada;
+import br.ufpi.poo.campominado.model.Tabuleiro;
 
 public class AulaTeste {
 	@Test(expected = AcaoInvalidaException.class)
@@ -126,16 +130,22 @@ public class AulaTeste {
 		cm.executa(nova1);
 		
 	}
-	@Test(expected = AcaoInvalidaException.class)
-	public void Teste()throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
-		CampoMinado cm = new CampoMinado();
+	 @Test
+	  public void TestaTemVencedor() { 
+		boolean retorno = false;
+	    CampoMinado cm = new CampoMinado(); 
+	    Tabuleiro tb = new Tabuleiro();
+	    if (tb.getQtdeZonasLivres() == 0)
+			retorno = true;
+		retorno = false;
 		
-		cm.reseta();
 		
-		Jogada nova1 = new Jogada(Acao.MARCAR, new Coordenada(1,-2));		
-		cm.executa(nova1);
+		assertTrue("Deveria retornar TRUE", retorno == cm.temVencedor());
+	  }
+	 
+	@Test(expected = BombaExplodiuException.class)/*Tenta marcar um valor na coluna com posição negativa*/
+	public void TesteExplodiuBomba()throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
+		
 		
 	}
-	
-	
 }
