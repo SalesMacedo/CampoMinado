@@ -170,22 +170,5 @@ public class AulaTeste {
 		
 	}
 	
-	@Test //Verifica se a Cordenada y não é inicializada com valor diferente de 0,1,2 ou 3
-	public void TesteValorCordenadaValiday(){
-		int x = 0;
-		int y1 = 0, y2 = 1, y3 = 2, y4 = 3;
-		
-		Coordenada cd = new Coordenada(x, y1);
-		assertEquals(y1>=0 && y1<4, cd.getY());
-		
-		Coordenada cd1 = new Coordenada(x, y2);
-		assertEquals(y2>=0 && y2<4, cd1.getY());
-		
-		Coordenada cd2 = new Coordenada(x, y3);
-		assertEquals(y3>=0 && y3<4, cd2.getY());
-		
-		Coordenada cd3 = new Coordenada(x, y4);
-		assertEquals(y4>=0 && y4<4, cd3.getY());
-		
-	}
+	
 }
