@@ -144,10 +144,48 @@ public class AulaTeste {
 		assertTrue("Deveria retornar TRUE", retorno == cm.temVencedor());
 	  }
 	 
-	@Test
+	@Test //Verifica numero de zonas
 	public void TesteNumZonas(){
 		Tabuleiro tb = new Tabuleiro();
 		assertEquals(12, tb.getNumZonas());
+		
+	}
+	
+	@Test //Verifica se a Cordenada X não é inicializada com valor diferente de 0,1,2 ou 3
+	public void TesteValorCordenadaValidaX(){
+		int x1 = 0, x2 = 1, x3 = 2, x4 = 3;
+		int y = 0;
+		
+		Coordenada cd = new Coordenada(x1, y);
+		assertEquals(x1>=0 && x1<4, cd.getX());
+		
+		Coordenada cd1 = new Coordenada(x2, y);
+		assertEquals(x2>=0 && x2<4, cd1.getX());
+		
+		Coordenada cd2 = new Coordenada(x3, y);
+		assertEquals(x3>=0 && x3<4, cd2.getX());
+		
+		Coordenada cd3 = new Coordenada(x4, y);
+		assertEquals(x4>=0 && x4<4, cd3.getX());
+		
+	}
+	
+	@Test //Verifica se a Cordenada y não é inicializada com valor diferente de 0,1,2 ou 3
+	public void TesteValorCordenadaValiday(){
+		int x = 0;
+		int y1 = 0, y2 = 1, y3 = 2, y4 = 3;
+		
+		Coordenada cd = new Coordenada(x, y1);
+		assertEquals(y1>=0 && y1<4, cd.getY());
+		
+		Coordenada cd1 = new Coordenada(x, y2);
+		assertEquals(y2>=0 && y2<4, cd1.getY());
+		
+		Coordenada cd2 = new Coordenada(x, y3);
+		assertEquals(y3>=0 && y3<4, cd2.getY());
+		
+		Coordenada cd3 = new Coordenada(x, y4);
+		assertEquals(y4>=0 && y4<4, cd3.getY());
 		
 	}
 }
