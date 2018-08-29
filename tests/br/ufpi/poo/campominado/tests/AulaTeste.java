@@ -1,5 +1,6 @@
 package br.ufpi.poo.campominado.tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -143,9 +144,10 @@ public class AulaTeste {
 		assertTrue("Deveria retornar TRUE", retorno == cm.temVencedor());
 	  }
 	 
-	@Test(expected = BombaExplodiuException.class)/*Tenta marcar um valor na coluna com posição negativa*/
-	public void TesteExplodiuBomba()throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
-		
+	@Test
+	public void TesteNumZonas(){
+		Tabuleiro tb = new Tabuleiro();
+		assertEquals(12, tb.getNumZonas());
 		
 	}
 }
