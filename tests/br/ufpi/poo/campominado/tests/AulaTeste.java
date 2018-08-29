@@ -86,5 +86,46 @@ public class AulaTeste {
 	
 	}
 	
+	//-------------------------------
+	
+	@Test(expected = AcaoInvalidaException.class)/*Tenta marcar um valor em ambas cordenadas negativas*/
+	public void TesteMarcarLimiteNegativo() throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
+		CampoMinado cm = new CampoMinado();
+		cm.reseta();
+		
+		Jogada jog = new Jogada(Acao.MARCAR, new Coordenada(-1,-1));
+		cm.executa(jog);
+	}
+	
+	@Test(expected = PosicaoInvalidaException.class)/*Investiga tabuleiro com limites negativos*/
+	public void TesteInvestigarLimiteNegativo() throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
+		CampoMinado cm = new CampoMinado();
+		cm.reseta();
+		Jogada n1 = new Jogada(Acao.INVESTIGAR, new Coordenada(-1,-1));
+		cm.executa(n1);
+	
+	}
+	@Test(expected = AcaoInvalidaException.class)/*Tenta marcar um valor na linha com posição negativa*/
+	public void TesteAcaoMarcarPosicaoLinhaNegativa()throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
+		CampoMinado cm = new CampoMinado();
+		
+		cm.reseta();
+		
+		Jogada nova1 = new Jogada(Acao.MARCAR, new Coordenada(-1,0));		
+		cm.executa(nova1);
+		
+
+	}
+	@Test(expected = AcaoInvalidaException.class)/*Tenta marcar um valor na coluna com posição negativa*/
+	public void TesteAcaoMarcarPosicaoColunaNegativa()throws PosicaoInvalidaException, AcaoInvalidaException, BombaExplodiuException{
+		CampoMinado cm = new CampoMinado();
+		
+		cm.reseta();
+		
+		Jogada nova1 = new Jogada(Acao.MARCAR, new Coordenada(1,-2));		
+		cm.executa(nova1);
+		
+	}
+	
 	
 }
